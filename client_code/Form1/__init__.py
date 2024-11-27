@@ -1,5 +1,9 @@
 from ._anvil_designer import Form1Template
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
+import anvil.server
 
 
 class Form1(Form1Template):
@@ -8,3 +12,12 @@ class Form1(Form1Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def login_click(self, **event_args):
+    username = self.Username.text
+    password = self.password.text
+    if self.save.checked:
+      anvil.server.call('login_save', username, password)
+    else:
+      anvil.server.call('login_unsave',username, password)
+  

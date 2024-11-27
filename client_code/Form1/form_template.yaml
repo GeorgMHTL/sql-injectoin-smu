@@ -1,5 +1,22 @@
 components:
-- components: []
+- components:
+  - layout_properties: {grid_position: 'IJGAMM,MZSUWA'}
+    name: Username
+    properties: {placeholder: Username, text: ''}
+    type: TextBox
+  - event_bindings: {click: login_click}
+    layout_properties: {grid_position: 'IJGAMM,XWGEPN'}
+    name: login
+    properties: {text: Login}
+    type: Button
+  - layout_properties: {grid_position: 'EXIEOV,ISTLIO'}
+    name: password
+    properties: {placeholder: Password, text: ''}
+    type: TextBox
+  - layout_properties: {grid_position: 'EXIEOV,ELHZNI'}
+    name: save
+    properties: {align: center, text: Protect SQL Injection}
+    type: CheckBox
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}
