@@ -38,4 +38,8 @@ def login_unsave(username,password):
   cur.execute(query)
   reslut = cur.fetchone()
   con.close()
+  if result == None:
+    return f"Login Fail: {query}"
+  else:
+    return f"Login Sucsess"
   print(reslut) 
