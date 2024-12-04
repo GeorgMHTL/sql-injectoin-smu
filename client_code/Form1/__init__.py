@@ -17,7 +17,12 @@ class Form1(Form1Template):
     username = self.Username.text
     password = self.password.text
     if self.save.checked:
-      anvil.server.call('login_save', username, password)
+      login_state = anvil.server.call('login_save', username, password)
     else:
-      anvil.server.call('login_unsave',username, password)
+      login_state = anvil.server.call('login_unsave',username, password)
+    
+    # alert(login_state)
+    open_form('user', login_state = login_state)
+
+    
   
