@@ -12,3 +12,7 @@ class user(userTemplate):
     self.init_components(**properties)
     print(properties.get('login_state'))
     # Any code you write here will run before the form opens.
+    self.rich_text_1.content= properties.get("login_state")
+
+  def button_1_click(self, **event_args):
+    open_form('Form1')
