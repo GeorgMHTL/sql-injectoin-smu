@@ -11,8 +11,4 @@ class user(userTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     print(properties.get('login_state'))
-    
-
-    
-
     # Any code you write here will run before the form opens.
