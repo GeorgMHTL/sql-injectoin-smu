@@ -56,7 +56,7 @@ def get_accountNo(username, password):
   cur.execute(query, (username, password))
   reslut = cur.fetchone()
   if reslut == None:
-    return [False , ""]
+    return [False , ' ']
   else:
     return [True, reslut]
   con.close()
