@@ -47,3 +47,17 @@ def login_unsave(username,password):
 
     return f"Login Sucsess {query}"
 
+@anvil.server.callable
+def get_accountNo(username, password):
+  con = sqlite3.connect(data_files["data_base.db"])
+  cur = con.cursor()
+  print(username)
+  query = "SELECT AccountNo FROM Users WHERE username = ? AND password = ?"
+  cur.execute(query, (username, password))
+  reslut = cur.fetchone()
+  if reslut == None:
+    return [False , ""]
+  else:
+    return [True, reslut]
+  con.close()
+  

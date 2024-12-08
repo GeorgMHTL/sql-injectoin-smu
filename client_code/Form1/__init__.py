@@ -20,9 +20,10 @@ class Form1(Form1Template):
       login_state = anvil.server.call('login_save', username, password)
     else:
       login_state = anvil.server.call('login_unsave',username, password)
+
     
     # alert(login_state)
-    open_form('user', login_state = login_state)
+    open_form('user', login_state = login_state, AccountState = anvil.server.call('get_accountNo',username,password) )
 
     
   
