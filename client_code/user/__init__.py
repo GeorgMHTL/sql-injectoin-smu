@@ -12,8 +12,6 @@ class user(userTemplate):
     self.init_components(**properties)
     print(properties.get('login_state'))
     # Any code you write here will run before the form opens.
-
-
     AccountState = properties.get("AccountState")
     accNo = AccountState[1]
     accState = AccountState[0]
@@ -30,8 +28,8 @@ class user(userTemplate):
     if accState:
       set_url_hash(f'#AccountNo={accNo[0]}')
     else:
-      set_url_hash(f'#AccountNo=')
-
+      pass
+      
   def accountNo_check(self, accNo):
     print(get_url_hash(), f'AccountNo={accNo}')
     if get_url_hash() == f'AccountNo={accNo[0]}':
