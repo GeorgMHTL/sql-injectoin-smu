@@ -21,8 +21,10 @@ class user(userTemplate):
     
 
   def button_1_click(self, **event_args):
+    alert("user")
     open_form('Form1')
-    set_url_hash("")
+   
+    
 
   def accountNo_set(self, accNo, accState):
     if accState:

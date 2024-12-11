@@ -4,6 +4,11 @@ components:
     name: label_1
     properties: {}
     type: Label
+  - event_bindings: {click: button_1_click}
+    layout_properties: {grid_position: 'BJFVGX,WRQKAL'}
+    name: button_1
+    properties: {text: Back}
+    type: Button
   layout_properties: {slot: default}
   name: content_panel
   properties: {}
