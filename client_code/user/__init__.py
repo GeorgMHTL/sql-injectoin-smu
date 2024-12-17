@@ -21,8 +21,7 @@ class user(userTemplate):
     
 
   def button_1_click(self, **event_args):
-    anvil.server.session["login"] = False
-    anvil.server.reset_session()
+    anvil.server.call('del_session')
     
     open_form('Form1')
    
