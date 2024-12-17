@@ -21,7 +21,9 @@ class user(userTemplate):
     
 
   def button_1_click(self, **event_args):
-    alert("user")
+    anvil.server.session["login"] = False
+    anvil.server.reset_session()
+    
     open_form('Form1')
    
     

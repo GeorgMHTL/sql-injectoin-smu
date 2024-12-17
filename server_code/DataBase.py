@@ -83,11 +83,11 @@ def login_accNo(url):
     
     query_balance = f"SELECT balance FROM Balances WHERE AccountNo = {url}"
     query_user = f"SELECT username FROM Users WHERE AccountNo = {url}"
-    query_password = f"SELECT password FROM Users WHERE AccountNo = {url}"
+    
     try:
         balance = cur.execute(query_balance).fetchall()
         user = cur.execute(query_user).fetchall()
-        password = cur.execute(query_password).fetchall()
+        
     except Exception as e:
         return f"User not found.<br>{query_user}<br>{query_balance}<br>{e}"
     # formatting start
@@ -97,7 +97,7 @@ def login_accNo(url):
     balance = balance[0] if len(balance) == 1 else balance
     # formatting end
     if user:
-        return f"Welcome {user}, {password}! Your balance is {balance}."
+        return f"Welcome {user}! Your balance is {balance}."
     else:
         return f"User not found.<br>{query_user}<br>{query_balance}"
 

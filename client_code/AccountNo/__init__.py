@@ -18,7 +18,8 @@ class AccountNo(AccountNoTemplate):
     # Any code you write here will run before the form opens.
 
   def button_1_click(self, **event_args):
-    alert("acc")
+    anvil.server.session["login"] = False
+    anvil.server.reset_session()
     open_form('Form1')
 
 
