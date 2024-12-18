@@ -29,7 +29,6 @@ def login_save(username, password):
     result = cur.fetchone()
     con.close()
     if result == None:
-      
       return f"Login Fail: {query}"
     else:
       anvil.server.session["login"] = True
@@ -74,7 +73,6 @@ def get_login_state():
 
 @anvil.server.callable
 def login_accNo(url):
-
     con = sqlite3.connect(data_files["data_base.db"])
     cur = con.cursor()
     url = get_accountNumber_from_query(url)
@@ -115,8 +113,14 @@ def get_accountNumber_from_query(url):
   
 @anvil.server.callable
 def del_session():
-  anvil.server.session.clear()
-  anvil.server.cookies.local.clear()
-  # if "login" not in anvil.server.session:
-     #anvil.server.session["login"] = False
-  
+  #anvil.server.session.clear()
+  #anvil.server.cookies.local.clear()
+  if "login" not in anvil.server.session:
+    anvil.server.session["login"] = False
+   
+    
+
+
+@anvil.server.callable
+def current_state():
+  return anvil.server.session["login"]
