@@ -113,8 +113,8 @@ def get_accountNumber_from_query(url):
   
 @anvil.server.callable
 def del_session():
-  #anvil.server.session.clear()
-  #anvil.server.cookies.local.clear()
+  anvil.server.cookies.local.clear()
+  anvil.server.cookies.shared.clear()
   if "login" not in anvil.server.session:
     anvil.server.session["login"] = False
    
