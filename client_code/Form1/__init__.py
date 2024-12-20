@@ -13,6 +13,8 @@ class Form1(Form1Template):
     state = anvil.server.call('get_login_state')
     if state is True:
       open_form('AccountNo')
+      self.Username.text = ''
+      self.password.text = ''
     # Any code you write here will run before the form opens.
 
   def login_click(self, **event_args):
