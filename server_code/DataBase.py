@@ -28,7 +28,8 @@ def login_save(username, password):
     cur.execute(query, (username, password))
     result = cur.fetchone()
     con.close()
-    if result == None:
+    if result == None or username == '' or password == '' :
+      anvil.server.session["login"] = False
       return f"Login Fail: {query}"
     else:
       anvil.server.session["login"] = True
@@ -41,9 +42,10 @@ def login_unsave(username,password):
   print(username)
   query = f"SELECT username, isAdmin FROM Users WHERE username = '{username}' AND password = '{password}'"
   cur.execute(query)
-  reslut = cur.fetchone()
+  result = cur.fetchone()
   con.close()
-  if reslut == None:
+  if result == None or username == '' or password == '' :
+    anvil.server.session["login"] = False
     return f"Login Fail: {query}"
   else:
     anvil.server.session["login"] = True
@@ -69,7 +71,7 @@ def get_login_state():
   if "login" not in anvil.server.session:
     anvil.server.session["login"] = False
     
-  return anvil.server.session["login"]
+  return anvil.server.session["login"] 
 
 @anvil.server.callable
 def login_accNo(url):
