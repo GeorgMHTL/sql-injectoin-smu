@@ -23,9 +23,10 @@ class Form1(Form1Template):
     else:
       login_state = anvil.server.call('login_unsave',username, password)
 
-    
-    # alert(login_state)
-    open_form('user', login_state = login_state, AccountState = anvil.server.call('get_accountNo',username,password) )
+    if "Fail" not in login_state:
+      open_form('user', login_state = login_state, AccountState = anvil.server.call('get_accountNo',username,password) )
+    else:
+      alert("Wrong Username or Password")
 
     
   

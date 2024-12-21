@@ -17,8 +17,8 @@ class user(userTemplate):
     accState = AccountState[0]
     self.accountNo_set(accNo,accState)
     state = self.accountNo_check(accNo)
-    self.rich_text_1.content= f"{state} \n {properties.get('login_state')}"
-    
+    self.rich_text_1.content= f"{properties.get('login_state')}"
+    self.rich_text_2.content= state
 
   def button_1_click(self, **event_args):
     anvil.server.call('del_session')

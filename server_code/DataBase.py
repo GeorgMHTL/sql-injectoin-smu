@@ -44,7 +44,8 @@ def login_unsave(username,password):
   reslut = cur.fetchone()
   con.close()
   if reslut == None:
-    return f"Login Fail: {query}"
+    anvil.server.session["login"] = False
+    return f"Login Fail: {query}, {reslut}"
   else:
     anvil.server.session["login"] = True
     return f"Login Sucsess {query}"
@@ -109,18 +110,11 @@ def get_accountNumber_from_query(url):
       return query_params["AccountNo"][0]
   return None
 
-
-  
 @anvil.server.callable
 def del_session():
-  anvil.server.cookies.local.clear()
-  anvil.server.cookies.shared.clear()
-  if "login" not in anvil.server.session:
-    anvil.server.session["login"] = False
-   
-    
-
-
+  anvil.server.session["login"] = False
+  
 @anvil.server.callable
 def current_state():
   return anvil.server.session["login"]
+  

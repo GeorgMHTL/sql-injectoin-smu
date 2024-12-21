@@ -20,5 +20,6 @@ class AccountNo(AccountNoTemplate):
   def button_1_click(self, **event_args):
     anvil.server.call('del_session')
     open_form('Form1')
+    
 
 
