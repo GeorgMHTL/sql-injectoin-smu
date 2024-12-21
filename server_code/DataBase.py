@@ -28,7 +28,7 @@ def login_save(username, password):
     cur.execute(query, (username, password))
     result = cur.fetchone()
     con.close()
-    if result == None or username == '' or password == '' :
+    if result == None:
       anvil.server.session["login"] = False
       return f"Login Fail: {query}"
     else:
@@ -115,9 +115,9 @@ def get_accountNumber_from_query(url):
   
 @anvil.server.callable
 def del_session():
-  if "login" in anvil.server.session:
-    anvil.server.session["login"] = False
-   
+  #if "login" in anvil.server.session:
+    #anvil.server.session["login"] = False
+   print("dsf")
     
 
 

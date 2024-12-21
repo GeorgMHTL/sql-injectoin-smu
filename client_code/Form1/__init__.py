@@ -14,8 +14,7 @@ class Form1(Form1Template):
     
     if state is True:
       open_form('AccountNo')
-      self.Username.text = None
-      self.password.text = None
+     
     # Any code you write here will run before the form opens.
 
   def login_click(self, **event_args):
